@@ -4,7 +4,7 @@ using System.IO;
 using Run.Pug.Diagnostics;
 using Run.Pug.Patterns;
 
-namespace Run.Pug.Resgen
+namespace Run.Pug.Ugh
 {
     public class NodeBuilder
     {

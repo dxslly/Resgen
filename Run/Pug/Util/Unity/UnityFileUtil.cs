@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace Run.Pug.Util
+namespace Run.Pug.Util.Unity
 {
     public class UnityFileUtil
     {
@@ -11,10 +11,6 @@ namespace Run.Pug.Util
         {
             return Directory.GetDirectories(Application.dataPath, 
                     RESOURCE_FOLDER_NAME_PATTERN, SearchOption.AllDirectories);
-        }
-
-        public static void WriteFile(string path, string contents)
-        {
         }
     }
 }

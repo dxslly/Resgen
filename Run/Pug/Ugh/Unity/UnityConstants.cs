@@ -1,4 +1,4 @@
-﻿namespace Run.Pug.Resgen.Unity
+﻿namespace Run.Pug.Ugh.Unity
 {
     public class UnityConstants
     {

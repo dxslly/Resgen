@@ -2,24 +2,24 @@
 using Run.Pug.Patterns;
 using System;
 using SC = Run.Pug.Mbombo.SyntaxConstants;
-using UC = Run.Pug.Resgen.Unity.UnityConstants;
+using UC = Run.Pug.Ugh.Unity.UnityConstants;
 using UnityObject = UnityEngine.Object;
 using UnityApplication = UnityEngine.Application;
 
-namespace Run.Pug.Resgen.Unity
+namespace Run.Pug.Ugh.Unity
 {
-    public class ResourceGenerator : IClassGenerator
+    public class ResourceGenerator : IGenerator
     {
         private static RegexMatcher metaFileMatcher = new RegexMatcher(@"\.meta$");
         private const string VALUE_FORMAT = "new RToolResource<{0}>(\"{1}\", \"{2}\")";
         private const string PROPERTY_TYPE_FORMAT = "RToolResource<{0}>";
 
-        public string DefaultClassName 
+        public string Name
         {
             get { return "Resource"; }
         }
 
-        public string GenerateClass(string className)
+        public string Generate(string className)
         {
             Node baseNode = new NodeBuilder(UnityApplication.dataPath, metaFileMatcher).Build();
 
@@ -30,7 +30,7 @@ namespace Run.Pug.Resgen.Unity
 
             AddNode(classBuilder, baseNode);
 
-            fileBuilder.AddUsingDeclaration<RToolResource<UnityObject>>();
+            fileBuilder.AddUsingDeclaration<UghResource<UnityObject>>();
             fileBuilder.SetClass(classBuilder.Build());
             return CSharpGenerator.GenerateFile(fileBuilder.Build());
         }

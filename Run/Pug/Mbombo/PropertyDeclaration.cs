@@ -50,6 +50,10 @@ namespace Run.Pug.Mbombo
                 return this;
             }
 
+            public Builder SetValueFormat(string format, params object[] args)
+            {
+                return SetValue(String.Format(format, args));
+            }
             public Builder SetValue(string value)
             {
                 instance.Value = value;

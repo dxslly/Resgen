@@ -3,18 +3,18 @@ using System;
 using C = Run.Pug.Mbombo.SyntaxConstants;
 using UnityLayerMask = UnityEngine.LayerMask;
 
-namespace Run.Pug.Resgen.Unity
+namespace Run.Pug.Ugh.Unity
 {
-    public class LayerGenerator : IClassGenerator
+    public class LayerGenerator : IGenerator
     {
         private const int MAX_NUM_LAYERS = 32;
 
-        public string DefaultClassName
+        public string Name
         {
             get { return "Layer"; }
         }
 
-        public string GenerateClass(string className)
+        public string Generate(string className)
         {
             var classBuilder = new ClassDeclaration.Builder(className)
                     .SetAccessModifer(AccessModifier.PUBLIC);

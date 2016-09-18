@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace Run.Pug.Resgen
+namespace Run.Pug.Ugh
 {
     /**
      * A recursive value object used as an intermediate representation of a

@@ -3,21 +3,21 @@ using System;
 using System.Collections.Generic;
 using UnitySortingLayer = UnityEngine.SortingLayer;
 
-namespace Run.Pug.Resgen.Unity
+namespace Run.Pug.Ugh.Unity
 {
-    public class SortingLayerGenerator : IClassGenerator
+    public class SortingLayerGenerator : IGenerator
     {
-        private const string VALUE_TEMPLATE = "new RToolSortingLayer({0}, \"{1}\", {2})";
+        private const string VALUE_TEMPLATE = "new UghSortingLayer({0}, \"{1}\", {2})";
 
-        public string DefaultClassName
+        public string Name
         {
             get { return "SortingLayer"; }
         }
 
-        public string GenerateClass(string className)
+        public string Generate(string className)
         {
             var fileBuilder = new FileDeclaration.Builder()
-                    .AddUsingDeclaration<RToolSortingLayer>();
+                    .AddUsingDeclaration<UghSortingLayer>();
             var classBuilder = new ClassDeclaration.Builder(className)
                     .IsStatic(true)
                     .SetAccessModifer(AccessModifier.PUBLIC);
@@ -28,7 +28,7 @@ namespace Run.Pug.Resgen.Unity
                 string propertyValue = GetValueString(sortingLayer);
 
                 var propertyBuilder =
-                        PropertyDeclaration.GetBuilder<RToolSortingLayer>(propertyName)
+                        PropertyDeclaration.GetBuilder<UghSortingLayer>(propertyName)
                                 .SetAccessModifier(AccessModifier.PUBLIC)
                                 .IsStatic(true)
                                 .SetValue(propertyValue);

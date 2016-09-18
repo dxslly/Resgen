@@ -46,9 +46,9 @@ namespace Run.Pug.Mbombo
                 return AddUsingDeclaration(typeof(T).Namespace);
             }
 
-            public Builder SetNamespace(NamespaceDeclaration namespaceDeclaration)
+            public Builder SetNamespace(string namespaceValue)
             {
-                instance.NamespaceDeclaration = namespaceDeclaration;
+                instance.NamespaceDeclaration = new NamespaceDeclaration(namespaceValue);
                 return this;
             }
 
